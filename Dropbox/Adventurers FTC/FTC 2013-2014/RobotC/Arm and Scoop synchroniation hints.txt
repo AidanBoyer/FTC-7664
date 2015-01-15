@@ -1,0 +1,21 @@
+to keep scoop horizontal while arm moves
+first, outside the program determine the ratio needed.  
+
+	ArmScoopRatio = (ArmMotorEncoder_Low - ArmMotorEncoder_High) / (ScoopMotorEncoder_Low - ScoopMotorEncoder_High)
+
+In the above equation, observe the motor encoder values with the scoop kept horizontal, first with the scoop on the floor, then with the arm very high, maybe vertical.
+
+For operation, program it to work like this:
+
+Position the arm & scoop with scoop horizontal on floor, press a game controller button.  In the loop, check to see if that button is pressed.  When pressed, save the arm and nxt encoder values (like reseting the encoder, but we'll keep track of it ourselves).
+	ArmMotorEncoderOrigin = Matrix encoder value when button pressed
+	ScoopMotorEncoderOrigin = NXT encoder value when button pressed
+
+in response to the joystick moving the Arm, in the loop, keep checking the Arm's encoder and send the scoop's motors to the appropriate position
+
+	targetScoopEncoder =  ScoopMotorEncoderOrigin + (ArmMotorEncoder_Now - ArmMotorEncoderOrigin) / ArmScoopRatio
+	
+use the other joystick to move the scoop manually and not use the above equation
+Whenever use the arm, move the scoop, too, using the targetScoopEncoder equation.
+
+Does that make sense?

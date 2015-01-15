@@ -1,0 +1,548 @@
+<!DOCTYPE html><html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<title>RobotC Description</title>
+<link rel="STYLESHEET" type="text/css" href="RobotC%20line%20following_files/main.css">
+<script language="JavaScript" src="RobotC%20line%20following_files/toc-line-following.js"></script>
+<script src="RobotC%20line%20following_files/include2012.js"></script>
+<script language="JavaScript" src="RobotC%20line%20following_files/prettify.js"></script>
+<link rel="STYLESHEET" type="text/css" href="RobotC%20line%20following_files/prettify.css">
+<script><!--
+/* Script removed by snapshot save */
+--></script>
+</head>
+<body onload="">
+<!-- Menu -->
+
+<div id="O1" style="position:absolute; z-index:20; left:0;top:0;width:10;height:10;visibility:visible;">•</div>
+<div id="O2" style="position:absolute; z-index:21; left:0;top:0;width:10;height:10;visibility:visible;color:#333333;">•</div>
+<div id="O3" style="position:absolute; z-index:22; left:0;top:0;width:10;height:10;visibility:visible;color:#666666;">•</div>
+<div id="O4" style="position:absolute; z-index:23; left:0;top:0;width:10;height:10;visibility:visible;color:#999999;">•</div>
+<div id="LogoDiv" style="position:absolute;font:normal 12pt verdana;z-index:400;" onmouseover="" onmouseout=""><a href="http://www.robocatz.com/" style="cursor:hand;text-decoration:none;color:#000;">RoboCatz.com</a></div>
+
+<div id="topMenu">
+<ul id="css3menu">
+
+<li class="topfirst"><a href="http://robocatz.com/navigation.htm" class="mainNav"><span>Navigation</span></a>
+<ul class="submenu">
+<li class="subitem"><a href="http://robocatz.com/navigation.htm">Overview</a></li>
+<li class="subitem"><a href="http://robocatz.com/going-straight.htm">Going Straight</a></li>
+<li class="subitem"><a href="http://robocatz.com/turning.htm">Turning</a></li>
+<li class="subitem"><a href="#">Line Following</a></li>
+</ul>
+</li>
+
+<li><a href="http://robocatz.com/myblocks.htm" class="mainNav"><span>MyBlocks</span></a></li>
+
+<li class="topfirst"><a href="http://robocatz.com/strategy.htm" class="mainNav"><span>Strategy</span></a>
+<ul class="submenu">
+<li class="subitem"><a href="http://robocatz.com/strategy.htm">Overview</a></li>
+<li class="subitem"><a href="http://robocatz.com/sensors.htm">Use of Sensors</a></li>
+<li class="subitem"><a href="http://robocatz.com/using-the-wall.htm">Using the Wall</a></li>
+<li class="subitem"><a href="http://robocatz.com/robot-design.htm">Robot Design Considerations</a></li>
+<li class="subitem"><a href="http://robocatz.com/variables.htm">Program Variables</a></li>
+<li class="subitem"><a href="http://robocatz.com/function-library.htm">Universal Function Library</a></li>
+<li class="subitem"><a href="http://robocatz.com/encoder-reset.htm">Motor Encoder Reset</a></li>
+<li class="subitem"><a href="http://robocatz.com/grouping-missions.htm">Grouping Missions</a></li>
+<li class="subitem"><a href="http://robocatz.com/program-menu.htm">Program Controller/Menu</a></li>
+</ul>
+</li>
+
+
+
+<li><a href="http://robocatz.com/models.htm" class="mainNav"><span>Models</span></a>
+<ul class="submenu">
+<li class="subitem"><a href="http://robocatz.com/models.htm">Training</a></li>
+<li class="subitem"><a href="http://robocatz.com/competition-robots.htm">Tournament Robots</a></li>
+<li class="subitem"><a href="http://robocatz.com/walking-robots.htm">Walking</a></li>
+<li class="subitem"><a href="http://robocatz.com/wheels-and-gears.htm">Wheels and Gears</a></li>
+<li class="subitem"><a href="http://robocatz.com/clutch-gears.htm">Clutch Gears</a></li>
+<li class="subitem"><a href="http://robocatz.com/stepped-gears.htm">Stepped Gears</a></li>
+<li class="subitem"><a href="http://robocatz.com/steering-systems.htm">Steering Systems</a></li>
+<li class="subitem"><a href="http://robocatz.com/bricklink.htm">Parts for Sale</a></li>
+</ul>
+</li>
+
+<li><a href="http://robocatz.com/robotc.htm" class="mainNav"><span>RobotC</span></a>
+<ul class="submenu">
+<li class="subitem"><a href="http://robocatz.com/natural-language-functions.htm">Natural Language Functions</a></li>
+<li class="subitem"><a href="http://robocatz.com/library-functions.htm">Function Library</a></li>
+<li class="subitem"><a href="http://robocatz.com/simulation-launcher.htm">Robot Simulator</a></li>
+</ul>
+</li>
+
+<li><a href="http://robocatz.com/robotc.htm" class="mainNav"><span>Learning Programming</span></a>
+<ul class="submenu">
+<li class="subitem"><a href="http://robocatz.com/art-launcher.htm">Javascript Programming (Computer Art)</a></li>
+<li class="subitem"><a href="http://robocatz.com/simulation-launcher.htm">RobotC (Programming Simulator)</a></li>
+<li class="subitem"><a href="http://robocatz.com/alice.htm">Alice (Storytelling)</a></li>
+</ul>
+</li>
+
+<li><a href="http://robocatz.com/robotc.htm" class="mainNav"><span>Experiments</span></a>
+<ul class="submenu">
+<li class="subitem"><a href="http://robocatz.com/alarm-system.htm">Home Alarm System</a></li>
+<li class="subitem"><a href="http://robocatz.com/program-menu.htm">Program Controller/Menu</a></li>
+<li class="subitem"><a href="http://robocatz.com/multiplexer-designs.htm">Multiplexer Designs</a></li>
+<li class="subitem"><a href="http://robocatz.com/holonomic-drive.htm">Holonomic Drives</a></li>
+<li class="subitem"><a href="http://robocatz.com/other-teams.htm">Other Team's Robots</a></li>
+</ul>
+</li>
+
+
+<li><a href="http://robocatz.com/robotc.htm" class="mainNav"><span>Robot News</span></a>
+<ul class="submenu">
+<li class="subitem"><a href="http://robocatz.com/3D-design.htm">Future of 3D Design</a></li>
+<li class="subitem"><a href="http://robocatz.com/ero-recycling.htm">Concrete Recycling Robot</a></li>
+<li class="subitem"><a href="http://robocatz.com/return-brick.htm">Brick Recycling Robot</a></li>
+<li class="subitem"><a href="http://robocatz.com/daVinci-surgical.htm">Da Vinci Surgical Robot</a></li>
+<li class="subitem"><a href="http://robocatz.com/iRobot-hand.htm">iRobot Hand</a></li>
+<li class="subitem"><a href="http://robocatz.com/CMU-chimp-robot.htm">CMU CHIMP Robot</a></li>
+<li class="subitem"><a href="http://robocatz.com/atlas-robot.htm">Atlas Robot</a></li>
+<li class="subitem"><a href="http://robocatz.com/harvest-automation.htm">Harvest Automation</a></li>
+</ul>
+</li>
+
+</ul>
+<a href="http://www.firstlegoleague.org/"><img src="RobotC%20line%20following_files/FLLLogo.gif" align="right" border="0" height="75"></a>
+</div>
+
+<div id="sideMenu"></div>
+
+<script language="JavaScript"><!--
+/* Script removed by snapshot save */
+--></script>
+
+<div id="Main"><h2>Line Following</h2><img src="RobotC%20line%20following_files/CompactBot.png" class="RightImage" border="0"><h2>RobotC Include File</h2>
+If you are using RobotC, the following Include file is referenced by the RobotC examples below. The file should be placed in the RobotC Includes folder. Please also note that the example programs in RobotC shown below make reference to LightPortion and LightPercent which are both functions found in the include file (shown below). These functions calculate the percent (or portion) of light compared to a range of light values. This range of light values is stored in a data file called "LightRange.txt" which is created and stored on the NXT brick through a Light Sensor Calibration program.
+<p>
+
+</p><pre class="prettyprint language-c linenums:1">//
+//  Includes File:  LineFollowing.c
+//
+#pragma config(Sensor, S3, lightSensor, sensorLightInactive)
+//
+// Define the variables and constants to be used with LineFollowing.
+//
+const string sFileName = "LightRange.txt"; 
+TFileIOResult nIoResult; 
+TFileHandle hFileHandle; 
+int nFileSize = 20;
+long tLowLight = 300;  
+long tHighLight = 600;
+//
+// Declare the Methods to be performed.
+//
+float getLightPortion() {
+  float result;
+  long numerator, denominator;
+  numerator = (long) SensorRaw[lightSensor] - tLowLight;
+  denominator = tHighLight - tLowLight;
+  result = (float)  numerator / denominator;
+  if(result &lt; 0) { result=0; }
+  if(result &gt; 1) { result=1; }
+  return result; 
+}
+int getLightPercent() { return 100 * getLightPortion(); }
+//
+//
+//
+void initLightSensor() {
+  SensorType[S3] = sensorLightActive;  // Turn light 'on' if it is currently 'off'
+  CloseAllHandles(nIoResult);
+  OpenRead(  hFileHandle, nIoResult, sFileName, nFileSize);
+  ReadLong(hFileHandle, nIoResult, tLowLight);
+  ReadLong(hFileHandle, nIoResult, tHighLight);
+  Close(hFileHandle, nIoResult);
+}</pre><a name="Introduction"></a><h2>Line Following</h2>
+Most line following programs utilize some formula for determining if the robot should move to the left, or right, in order to stay on the line. Whether the line is straight, curved, or a combination of both, the robot will use a simple formula to determine its position in relation to the line and how it should move in order to stay on the line.<br><br>There are dozens (probably hundreds) of different programs that can be written to help the robot follow a line. Several of the various programs are discussed and illustrated below.
+<p>
+
+</p><p class="Panel">Principle: If the robot has only <u>one</u> light sensor, the line following program will instruct the robot to follow only <u>one</u> side of the line (left or right depending on the formulas used in the program and the orientation of the motors in the robot design).</p>Many of the programs below use either "<a href="http://robocatz.com/calibrate_lightsensor.htm">Calibrated</a>" or "<a href="http://robocatz.com/calibrate_lightsensor.htm#UnCalibrate">Un-Calibrated</a>" light sensors.
+The are practical advantages and disadvantages to each.  Some programs may work better with un-calibrated sensors--especially those that pass values directly to the steering option of the Move block.
+Programs with "Calibrated" light sensors may work in different environments and under different conditions without modification--all that needs to be done is to re-calibrate the sensors.<a name="MoveBlockSteering"></a><h3>Method 1: Steering in the Move block</h3>
+<img src="RobotC%20line%20following_files/MoveBlockExpanded.png" class="RightImage" border="0">The Mindstorms NXT software provides a Move block which allows you to specify the amount of Steering in the form of an amount that varries between -100 and +100. Values less than 0 will steer the robot in one direction. Values greater than 0 will steer the robot in the other direction. If the value is equal to 0 then the robot will drive straight. <br><br>The basic idea in using this block for line following is that you want to get the robot to steer in one direction if the light sensor sees the black line and to steer in the other direction if the light sensor sees the white surface background.
+<p>
+
+There are two basic ways of creating the formula.</p><ol><li>Light Sensor Value minus a constant (k) equals the new steering amount </li><li>Constant (k) minus the Light Sensor Value equals the new steering amount</li></ol>Which formula you decide to use will depend on whether you want the robot to follow the left side or the right side of the line. The other part of the formula you need to determine is the value for the constant (k). In general, the value of the constant (k) should be set to the midpoint of the light range. The "light range" is the difference between the lowest and highest values obtained from the light sensor. For example, if the value of the light sensor on the white background is 50 and the value of the light sensor on the black line is 25, then the value of the constant (k) should be the midpont of those two values (50+25)/2 which equals 37.5. The duration of the Motor block should be sent to infinity. And the combination of light sensor, Subtraction with k, and Motor block should be placed within an infinite loop. The power level for the Motor block should be set to a low value at first and then gradually increase this to see how well the robot is able to follow the line
+<p>
+
+</p><div class="rbroundbox"><div class="rbtop"><div></div></div><div class="rbcontent"><b>Tip</b>: Which formula you decide to use will depend on whether you want the robot to follow the left side or the right side of the line.</div><div class="rbbot"><div></div></div></div><div class="AdText">Pseudocode for the smallest form of this program using <a href="http://robocatz.com/calibrate_lightsensor.htm#UnCalibrate">Un-Calibrated</a> light sensors:<p>
+
+k Minus Light Value equals Steering
+Formula: k - value = Steering</p><p>
+
+Light Value minus k equals Steering<br>
+Formula: value - k = Steering</p></div><h3>Programs for Un-Calibrated Light Sensors</h3>
+<div class="rbroundbox"><div class="rbtop"><div></div></div><div class="rbcontent"><b>Tip</b>: The smallest form of this program works best if using <a href="http://robocatz.com/calibrate_lightsensor.htm#UnCalibrate">Un-Calibrated</a> light sensors.</div><div class="rbbot"><div></div></div></div><div class="LeftImage"><img src="RobotC%20line%20following_files/LineFollowerProgram01R.png" class="LeftImage" border="0"><br><a href="http://robocatz.com/programs/LineFollower01_Right.rbt">Download this program</a></div><br clear="all"><div class="LeftImage"><img src="RobotC%20line%20following_files/LineFollowerProgram01L.png" class="LeftImage" border="0"><br><a href="http://robocatz.com/programs/LineFollower01_Left.rbt">Download this program</a></div><a name="SteeringFactoredMove"></a><br clear="all"><a name="AdjustedMoveBlock"></a><h3>Method 2: Steering in the Move block Adjusted by a Factor</h3>
+<font color="red" size="4"><b>Problem:</b></font> There is a potential problem if you use the above programs with a robot that has calibrated light sensors. The Midpoint of the light range for a calibrated light sensor has the value of 50. If the values returned by the light sensor range from 0 to 100, then the Midpoint is 50. The problem is that: Any values of Steering greater than 40 or less than -40 will result in the robot wheels moving in opposite directions. This has the undesireable effect of making the robot possibly move backwards. Our goal is to get the robot to move forward as it follows the line.<br><br><b>Try It</b>: Run the two programs in the previous section using <a href="http://robocatz.com/calibrate_lightsensor.htm">Calibrated</a> light sensors.  Remember that the value for N has to be the Midpoint of the light range.  So, if you are using calibrated light sensors, then you will need to change the program to make N equal to 50.<br><br>Do you see the problem?  The robot "overcompensates" (i.e., it turns to sharply) which makes it difficult to follow the line.  There are a couple of things we can do to the program to make it work better with calibrated light sensors.  If the value generated for the steering is too great, we can divide the generated value by a factor to reduce it.
+<p>
+
+</p><div class="AdText">Pseudocode for the larger form of this program using <a href="http://robocatz.com/calibrate_lightsensor.htm">Calibrated</a> light sensors:<br>
+<br>
+k Minus Light Value divided by a factor equals Steering<br>
+Formula: (k - value) / factor = Steering<br><br>
+
+Light Value minus k divided by a factor equals Steering<br>
+Formula: (value - k) / factor = Steering</div><div class="rbroundbox"><div class="rbtop"><div></div></div><div class="rbcontent"><b>Tip</b>: If you calibrate the light sensors using the Calibrate block, then the highest value (white background) would be 100 and the lowest value (black line) would be 0. This would make the Midpoint of the light range equal to 50 where (100+0)/2 = 50.</div><div class="rbbot"><div></div></div></div>This larger form of the program is for use with <a href="http://robocatz.com/calibrate_lightsensor.htm">Calibrated</a> light sensors which have a midpoint of 50 in the values returned from dark to light.  Although the Move block accepts steering values from -100 to +100, in general, steering values less than -40 or greater than +40 will result in the robot wheels turning in opposite directions for a very sharp turn. This amount of turning may be too great for the robot to remain on the line.  Therefore, it may be necessary to reduce the value sent as the amount of steering.  Dividing by a "factor" can help reduce this steering amount.  The value for the factor depends on the degree of turns and speed of the robot.  In general, you can use a larger "factor" for lines that are straight and for robots that are able to travel faster without losing the line. If the robot is on a line with curves or if the robot frequently loses the line, then you need to use a factor which is smaller.
+<p>
+
+</p><div class="LeftImage"><img src="RobotC%20line%20following_files/LineFollowerProgram01CR.png" class="LeftImage" border="0"><br><a href="http://robocatz.com/programs/LineFollower01C_Right.rbt">Download this program</a></div><br clear="all"><div class="LeftImage"><img src="RobotC%20line%20following_files/LineFollowerProgram01CL.png" class="LeftImage" border="0"><br><a href="http://robocatz.com/programs/LineFollower01C_Left.rbt">Download this program</a></div><br clear="all"><a name="OneSensorSteering"></a><a name="ProportaionalSteering"></a><h3>Method 3: Proportional Steering</h3>
+The basic idea in this line following program is make the light sensor value a portion (dividing by 100) and convert it to a steering scale (multiplying by 80 and then subtracting 40).  Steering has a range of -100 to +100.  However, if you test the Move block, you will find that values of steering less than -80 or greater than +80 have no change in performance.  Effectively, the range for steering is from -80 to +80.  Also note that when any values for steering are more than +40 or less than -40, the two motors will move in opposite directions.  If the motors move in opposite directions then the robot will not have smooth movement.  Therefore, to keep both motors moving forward, the range for steering will be limited to -40 to +40.
+<p>
+
+</p><div class="AdText">Pseudocode:<br>
+Light Sensor value divided by 100 times 80 minus 40.<br>
+<br>
+<br>
+Formulas:<br>
+   Light Sensor / 100 * 80 - 40 = Steering for the Move Block<br>
+which simplifies to:<br>
+   Light Sensor * .80 - 40 = Steering for the Move Block<br></div><div class="LeftImage"><img src="RobotC%20line%20following_files/LineFollowerProgram03Steering.png" class="LeftImage" border="0"><br><a href="http://robocatz.com/programs/LineFollower08.rbt">Download this program</a><br clear="all"></div><br clear="all">To change which side of the line the robot follows:<ul><li>Divide by a -0.8 instead of a +0.8</li></ul><h4>Example in RobotC</h4>
+<img src="RobotC%20line%20following_files/RobotC.png" class="LeftImage" border="0"><br clear="all"><pre class="prettyprint language-c linenums:1">#include "LineFollowing.c";
+
+task main() {
+  initLightSensor();
+  while(true) {
+    if(getLightPercent()&lt;50) {
+      nSyncedMotors = synchCB;  // setting up C as master, B as slave
+      nSyncedTurnRatio = (getLightPercent() * 2);
+      motor[motorC] = 70;         // set the speed of the master motor
+    } else {
+      nSyncedMotors = synchBC;  // setting up B as master, C as slave
+      nSyncedTurnRatio = (int) 100 - ((getLightPercent() - 50) * 2);
+      motor[motorB] = 70;         // set the speed of the master motor
+    }
+  }
+}</pre><a href="http://robocatz.com/programs/LineFollower03.c">Download this program</a><br><a name="SwitchMidpoint"></a><a name="SwitchOnMidpoint"></a><h3>Method 4: Switch on Midpoint of Light Range</h3>
+The basic idea in this line following program is to have the robot move either the left or the right motor depending on the value of the light sensor.  The values generated by the light sensor will range from low (on the black line) to high (on the white background).  A logic switch is used to choose between to options: either move motor B or move motor C.  The logic switch is controlled by the light sensor.  A criteria is entered for comparison to determine which path the switch should choose.  The criteria is set to the midpoint of the light range.  For example, if the value of the light sensor on the white background is 50 and the value of the light sensor on the black line is 25, then the value of the midpoint of the range is (50+25)/2 which equals 37.5. If you are using <a href="http://robocatz.com/calibrate_lightsensor.htm">Calibrated</a> light sensors, then the Midpoint would be set to 50.  If you are using Un-Calibrated light sensors, then you will need to determine the Midpoint through measuring the light values on the background and on the line.
+<p>
+
+</p><div class="rbroundbox"><div class="rbtop"><div></div></div><div class="rbcontent"><b>Tip</b>: If you calibrate the light sensors using the Calibrate block, then the highest value (white background) would be 100 and the lowest value (black line) would be 0.  This would make the Midpoint of the light range equal to 50 where (100+0)/2 = 50.</div><div class="rbbot"><div></div></div></div><div class="LeftImage"><img src="RobotC%20line%20following_files/LineFollowerProgram02.png" class="LeftImage" border="0"><br><a href="http://robocatz.com/programs/LineFollower02_Right.rbt">Download this program</a></div><br clear="all">Follow one side of the line:
+<p>
+
+</p><div class="LeftImage"><img src="RobotC%20line%20following_files/LineFollowerProgram02SwitchOptsR.png" class="LeftImage" border="0"><br><a href="http://robocatz.com/programs/LineFollower02_Right.rbt">Download this program</a></div><br clear="all">To follow the other side of the line, change the comparison option from "less than" (&lt;) to "greater than" (&gt;):<br>
+<p>
+
+</p><div class="LeftImage"><img src="RobotC%20line%20following_files/LineFollowerProgram02SwitchOptsL.png" class="LeftImage" border="0"><br><a href="http://robocatz.com/programs/LineFollower02_Left.rbt">Download this program</a></div><br clear="all">The Switch block allows you to enter a criteria for comparison and to specify what action to take if the observed light value is either "Greater (&gt;)" or "Less Than (&lt;)" the criteria.  This choice allows directs the robot to follow either the Left or Right side of the line.  If the robot is following the wrong side of the line, then change the direction of the comparison from (&gt;) to (&lt;) or from (&lt;) to (&gt;).
+<p>
+
+</p><div class="rbroundbox"><div class="rbtop"><div></div></div><div class="rbcontent"><b>Tip</b>: The direction of the comparison option determines if the robot follows the left or right side of the line.</div><div class="rbbot"><div></div></div></div><h4>Example in RobotC</h4>
+<img src="RobotC%20line%20following_files/RobotC.png" class="LeftImage" border="0"><br clear="all"><pre class="prettyprint language-c linenums:1">#include "LineFollowing.c";
+
+task main() {
+  initLightSensor();
+  int defaultPower = 50;
+  while(true) {
+    if(getLightPercent() &lt; 50) {
+      motor[motorB] = 0;
+      motor[motorC] = defaultPower;
+    } else {
+      motor[motorB] = defaultPower;
+      motor[motorC] = 0;
+    }
+  }
+}</pre><a href="http://robocatz.com/programs/LineFollower04.c">Download this program</a><br>
+<p>
+
+<a name="SteppedSwitching"></a><a name="SteppedSwitching"></a></p><h3>Method 5: Stepped Switching Based on Light Range</h3>
+The basic idea in this line following program is to increase the number of steps of steering.  The typical implementation will have steps such as:<ol><li>Turn Sharply to the Left  (Motor B 60% power; Motor C Stopped)</li><li>Turn Gradually to the Left  (Motor B 60% power; Motor 30% power)</li><li>Go Straight (Motors B and C 60% power)</li><li>Turn Gradually to the Right  (Motor B 30% power; Motor 60% power)</li><li>Turn Sharply to the Right  (Motor B Stopped; Motor C 60% power)</li></ol><div class="LeftImage"><img src="RobotC%20line%20following_files/LineFollowerProgram03.png" class="LeftImage" border="0"><br><a href="http://robocatz.com/programs/LineFollower03.rbt">Download this program</a></div><br clear="all">The program shown above assumes the light sensor has been <a href="http://robocatz.com/calibrate_lightsensor.htm">Calibrated</a> for the white background and black line.  A "<a href="http://robocatz.com/calibrate_lightsensor.htm">Calibrated</a>" light sensor will return values that range from 0 to 100.  Calibrating the light sensor helps to keep the program simple.<br><br>The range of values returned by a calibrated light sensor is 100.  Divide this by 20 to get the five steps needed for the switch.  The options for the Switch are shown below:
+<p>
+
+<img src="RobotC%20line%20following_files/LineFollowerProgram03Switch.png" class="LeftImage" border="0"><br clear="all"></p><h4>How it works.</h4>
+The possible values returned from the Light sensor are from 0 to +100.  Dividing this by 20 will give us a value which is probably rounded to the integer value when used in the Switch block.  Each "Tab" in the Switch block corresponds to an integer value for the input.  The integer values range from 0 to 4.
+<p>
+
+</p><h4>Example in RobotC</h4>
+<img src="RobotC%20line%20following_files/RobotC.png" class="LeftImage" border="0"><br clear="all"><pre class="prettyprint language-c linenums:1">#include "LineFollowing.c";
+
+task main() {
+  initLightSensor();
+  int defaultPower = 60;
+  while(true) {
+    int currLight = getLightPercent();
+    if(currLight &lt;= 20) {
+      motor[motorB] = 0;
+      motor[motorC] = defaultPower / 2;
+    } else if(currLight &lt;= 40) {
+      motor[motorB] = defaultPower / 2;
+      motor[motorC] = defaultPower;
+    } else if(currLight &lt;= 60) {
+      motor[motorB] = defaultPower;
+      motor[motorC] = defaultPower;
+    } else if(currLight &lt;= 80) {
+      motor[motorB] = defaultPower;
+      motor[motorC] = defaultPower / 2;
+    } else {
+      motor[motorB] = defaultPower / 2;
+      motor[motorC] = 0;
+    }
+  }
+}</pre><a href="http://robocatz.com/programs/LineFollower05.c">Download this program</a><br clear="all"><a name="ProportionalPower"></a><a name="ProportionalPower"></a><h3>Method 6: Proportional Power Level</h3>
+The basic idea in this line following program is to increase the power proportionally based on the values from the Light Sensor.  The program assumes the light sensor has been <a href="http://robocatz.com/calibrate_lightsensor.htm">Calibrated</a>.
+<p>
+
+</p><div class="AdText">Pseudocode:<br>
+Divide the light sensor value by 100 which converts the difference to a portion that ranges from 0 to 1.<br>
+Now multiply that portion times the maximum power level to get the power for the first motor.<br>
+Subtract the power for the first motor from the maximum power level to get the power for the second motor.<br>
+<br>
+<br>
+Formulas:<br>
+   LightSensor / 100 * MaxPower = Power For Motor<sub>1</sub><br>
+and<br>
+   MaxPower - Power For Motor<sub>1</sub> = Power For Motor<sub>2</sub></div><div class="LeftImage"><img src="RobotC%20line%20following_files/LineFollowerProgram04.png" class="LeftImage" border="0"><br><a href="http://robocatz.com/programs/LineFollower04.rbt">Download this program</a><br><br clear="all"></div><br clear="all">Since the light range for a "<a href="http://robocatz.com/calibrate_lightsensor.htm">Calibrated</a>" Light Sensor is 100, we can divide the current light value by 100 to convert it to a portion to be multiplied by the Default Power level.  This becomes the power level for Motor B.  The difference between the Default Power Level and the power for Motor B becomes the power for Motor C.<br><br>You can change which side of the line the robot follows by changing which motor gets the initial power.
+<p>
+
+</p><h4>Example in RobotC</h4>
+<img src="RobotC%20line%20following_files/RobotC.png" class="LeftImage" border="0"><br clear="all"><pre class="prettyprint language-c linenums:1">#include "LineFollowing.c";
+
+task main() {
+  initLightSensor();
+  int defaultPower = 90;
+  float currPower = 0;
+  while(true) {
+    currPower = getLightPortion() * defaultPower;
+    motor[motorB] = currPower;
+    motor[motorC] = defaultPower - currPower;
+  }
+}</pre><a href="http://robocatz.com/programs/LineFollower06.c">Download this program</a><br clear="all"><a name="ProportionalPowerConstant"></a><h3>Method 7: Proportional Power Level With Constant</h3>
+The basic idea in this line following program is to increase the speed of the robot by adding a constant level of power to each motor in addition to the proportionally adjusted power from the Light Sensor.
+<p>
+
+</p><div class="rbroundbox"><div class="rbtop"><div></div></div><div class="rbcontent"><b>Tip</b>: Try to keep the robot moving forward by adding a constant power to both motors.</div><div class="rbbot"><div></div></div></div><div class="AdText">Pseudocode:<br>
+Divide the light sensor value by 100 which converts the difference to a portion that ranges from 0 to 1.<br>
+Now multiply that portion times the maximum power level and add a constant to get the power for the first motor.<br>
+Multiply that portion times the maximum power level and subtract that product from the maximum power level to get the power for the second motor.<br>
+<br>
+<br>
+Formulas:<br>
+   LightSensor / 100 * MaxPower + Constant = Power For Motor<sub>1</sub><br>
+and<br>
+   MaxPower - (LightSensor / 100 * MaxPower) + Constant = Power For Motor<sub>2</sub></div><div class="LefttImage"><img src="RobotC%20line%20following_files/LineFollowerProgram07.png" class="LefttImage" border="0"><br><a href="http://robocatz.com/programs/LineFollower07.rbt">Download this program</a><br clear="all"></div><br><br>Since the light range for a "<a href="http://robocatz.com/calibrate_lightsensor.htm">Calibrated</a>" Light Sensor is 100, we can divide the current light value by 100 to convert it to a portion to be multiplied by the Default Power level. Then add the Constant power.  This becomes the power level for Motor B.  The difference between the Default Power Level and the product of the Default power and the light sensor becomes the power for Motor C.  Don't forget to add the Constant power to Motor C as well.  <br><br>In summary, both motors get the Constant power.  But one motor gets more, or less, of the variable power depending on the value obtained from the light sensor.
+<p>
+
+<b>Tuning</b></p><ul><li>Increase or decrease the Constant power to make the robot move faster or slower.</li><li>Increase or decrease the Variable power to help the robot to make wider or narrower turns.</li><li>If you want to change which side of the line the robot follows, change whether Motor B or Motor C is shown first in the program.</li></ul><br><b>Troubleshooting</b><ul><li>If the robot moves backwards along the line, try changing the direction of both Motor blocks.</li><li>If the robot moves away from the line, place the robot on the other side of the line.</li><li>If the robot moves back and forth without making progress, <a href="http://robocatz.com/calibrate_lightsensor.htm">calibrate</a> the light sensors.</li></ul><h4>Example in RobotC</h4>
+<img src="RobotC%20line%20following_files/RobotC.png" class="LeftImage" border="0"><br clear="all"><pre class="prettyprint language-c linenums:1">#include "LineFollowing.c";
+
+task main() {
+  initLightSensor();
+  int defaultPower = 55;
+  int constantPower = 10;
+  float currPower = 0;
+  while(true) {
+    currPower = getLightPortion() * defaultPower;
+    motor[motorB] = currPower + constantPower;
+    motor[motorC] = (defaultPower - currPower) + constantPower;
+  }
+}</pre><a href="http://robocatz.com/programs/LineFollower07.c">Download this program</a><br clear="all"><a name="ProportionalPowerPID"></a><a name="PIDMinusID"></a><h3>Method 8: Proportional Power (PID Minus the ID)</h3>
+The basic idea in this line following program is to adjust the speed of each motor of the robot by adding (or subtracting) a variable level of power from a constant level of power.  <br><br><b>Background:</b> This method is based on a part of the classic PID controller.  PID is short for <b>P</b>roportional, <b>I</b>ntegral, <b>D</b>erivative.  A PID controller calculates an "error" value as the difference between a measured light value and the desired value (usually 50% if following a line). The controller attempts to minimize the error through the use of a formula.  The PID controller formula involves three separate parameters: the proportional, the integral and derivative.  Using a NXT robot, we can obtain excellent line following using just the "P" part of the formula.  The Integral and Derivative are not needed at this level.
+<p>
+
+</p><div class="rbroundbox"><div class="rbtop"><div></div></div><div class="rbcontent"><b>Tip</b>: Adjust the performance of the robot by increasing or decreasing the variable amount of power used to calculate the product: Kp.</div><div class="rbbot"><div></div></div></div><div class="AdText">Pseudocode:<br>
+A "target" level of light is set to be 50%.  Now take the current level of light and subtract it from the target level.  The difference will be 
+negative or positive depending on whether the current level is higher or lower than the target.  Then divide this difference by 50 to convert it
+to a number between -1 and +1.  Multiply that ratio by the amount of variable power.  Then add this product to one motor and subtract the product from the other motor.
+<br>
+<br>
+Formulas:<br>
+   Kp = ((LightSensor - 50) / 50) * Variable Power Level<br>
+and<br>
+   defaultPower + Kp = Power For Motor<sub>1</sub><br>
+and<br>
+   defaultPower - Kp = Power For Motor<sub>2</sub></div><div class="LeftImage"><img src="RobotC%20line%20following_files/LineFollowerProgram08.png" class="LeftImage" border="0"><br><a href="http://robocatz.com/programs/LineFollower08.rbt">Download this program</a><br clear="all"></div><br clear="all">Since the light range for a "<a href="http://robocatz.com/calibrate_lightsensor.htm">Calibrated</a>" Light Sensor is 100, we can divide the current light value by 100 to convert it to a portion to be multiplied by the Default Power level.  This becomes the power level for Motor B.  The difference between the Default Power Level and the power for Motor B becomes the power for Motor C.
+<p>
+
+<b>Tuning</b></p><ul><li>Increase or decrease the Constant power to make the robot move faster or slower.</li><li>Increase or decrease the Variable power to help the robot to make wider or narrower turns.</li><li>If you want to change which side of the line the robot follows, change whether Motor B or Motor C is shown first in the program.</li><li>If the robot shakes rapidly while following the line, reduce the amount of variable power.</li><li>If the robot fails to make turns, increase the amount of variable power.</li></ul><br><b>Troubleshooting</b><ul><li>If the robot moves backwards along the line, try changing the direction of both Motor blocks. </li><li>NXT-G allows you to specify whether the direction of the motor is forward or backward.  </li><li>Direction is independent of Power in the NXT-G motor block.  So, if it has the right power, but just going in the wrong direction, change the direction option.</li><li>In RobotC, if you want to change the direction, you would need to reverse the sign of the power being supplied to the motor statement.<br></li><li>If the robot moves away from the line, place the robot on the other side of the line.  Remember, all line following robots try to steer toward the edge of the line.  </li><li>The program tells them whether to look for the left side or the right side of the line.</li><li>If the robot moves back and forth without making progress, <a href="http://robocatz.com/calibrate_lightsensor.htm">calibrate</a> the light sensors or adjust the value of variablePower (see "Tuning" above).</li></ul><h4>Example in RobotC</h4>
+<img src="RobotC%20line%20following_files/RobotC.png" class="LeftImage" border="0"><br clear="all"><pre class="prettyprint language-c linenums:1">#include "LineFollowing.c";
+
+task main() {
+  initLightSensor();
+  int constantPower = 45;
+  int variablePower = 20;
+  float Kp = 0;
+  while(true) {
+    Kp = ((getLightPercent() - 50) / 50) * variablePower;
+    motor[motorB] = constantPower + Kp;
+    motor[motorC] = constantPower - Kp;
+  }
+}</pre><a href="http://robocatz.com/programs/LineFollower08.c">Download this program</a><br clear="all">Or, to go in the opposite direction, use:
+<p>
+
+</p><pre class="prettyprint language-c linenums:1">#include "LineFollowing.c";
+
+task main() {
+  initLightSensor();
+  int constantPower = 45;
+  int variablePower = 20;
+  float direction = -1;
+  float Kp = 0;
+  while(true) {
+    Kp = ((getLightPercent() - 50) / 50) * variablePower;
+    motor[motorB] = direction * (constantPower + Kp);
+    motor[motorC] = direction * (constantPower - Kp);
+  }
+}</pre><br clear="all"><a name="ProportionalPowerTwoSensors"></a><a name="PropPower2Sensors"></a><h3>Method 9: Proportional Power Level With 2 Light Sensors</h3>
+The basic idea in this line following program is to get the robot to follow the line using a light sensor on each side of the line.  Optimally, the two light sensors should each see Grey (half over the line and half over the white background).  This program will subtract the value from one sensor from the value of the other sensor (i.e., it will calculate the difference between the two sensors).  If the difference between the sensors is zero (i.e., each sensor is receiving the same amount of light), then the robot will apply 50% power to each motor (driving the robot straight).  If one sensor sees more light than the other, then the difference between them will not be zero.  The robot will then apply a greater percentage of power to one motor than to the other.
+<p>
+
+</p><div class="AdText">Pseudocode:<br>
+Calculate the difference between the light sensors and add 100 to the Difference.<br>
+Then divide that sum by 200 which converts the difference to a portion that ranges from 0 to 1.<br>
+Now multiply that portion times the maximum power level to get the power for the first motor.<br>
+Subtract the power for the first motor from the maximum power level to get the power for the second motor.<br>
+<br>
+<br>
+Formulas:<br>
+   ( LightSensor<sub>2</sub> - LightSensor<sub>1</sub> + 100 ) / 200 * MaxPower = Power For Motor<sub>1</sub><br>
+and<br>
+   MaxPower - Power For Motor<sub>1</sub> = Power For Motor<sub>2</sub></div><div class="LeftImage"><img src="RobotC%20line%20following_files/LineFollowerProgram09.png" class="LeftImage" border="0"><br><a href="http://robocatz.com/programs/LineFollower09.rbt">Download this program</a><br clear="all"></div><br clear="all"><h5>Tuning</h5>
+To change which side of the line the robot follows, just change either:<ol><li>Which motor gets the initial power level.</li><li>Which light sensor gets subtracted from the other (see below).</li></ol><table>
+<tbody><tr><td valign="top">
+If this doesn't work, ...
+</td><td valign="top">    </td><td valign="top">
+try this one.
+</td></tr>
+<tr><td valign="top">
+<img src="RobotC%20line%20following_files/LineFollowerProgram06_Left.png" border="0"><br>
+</td><td valign="top"></td><td valign="top">
+<img src="RobotC%20line%20following_files/LineFollowerProgram06_Right.png" border="0"><br>
+</td></tr>
+</tbody></table>Since the light range for a "<a href="http://robocatz.com/calibrate_lightsensor.htm">Calibrated</a>" Light Sensor is 100, we can divide the current light value by 100 to convert it to a portion to be multiplied by the Default Power level.  This becomes the power level for Motor B.  The difference between the Default Power Level and the power for Motor B becomes the power for Motor C.
+<p>
+
+</p><h4>Example in RobotC</h4>
+<img src="RobotC%20line%20following_files/RobotC.png" class="LeftImage" border="0"><br clear="all"><pre class="prettyprint language-c linenums:1">#include "LineFollowing.c";
+#pragma config(Sensor, S2, lightSensorB, sensorLightInactive)
+// Initialize a second light sensor.  
+// The first one is already initialized in the "include" file above.
+
+float getLightDiffPortion() {  
+  float result;  
+  long numerator1;  
+  long numerator2;  
+  long numerator;  
+  // Normalize the two light sensor readings (i.e., put on a scale from 1 to 100)
+  numerator1 = (float) (SensorRaw[lightSensorA] - tLowLight) / (tHighLight - tLowLight) * 100;
+  numerator2 = (float) (SensorRaw[lightSensorB] - tLowLight2) / (tHighLight2 - tLowLight2) * 100;
+  numerator = (float) numerator1 - numerator2 + 100;
+  // Add 100 to the difference.  The resulting values should range from 0 to 200
+  result = (float)  numerator / 200;
+  // Divide by 200 to get a portion (ranging from 0 to 1) 
+  //    of the power that should be applied to one motor
+  return result;
+}
+
+task main() {
+  initLightSensor();
+  SensorType[S2] = sensorLightActive;  // Turn light 'on' if it is currently 'off'
+
+  int defaultPower = 90;
+  float currPower = 0;
+  while(true) {
+    currPower = getLightDiffPortion() * defaultPower;
+    motor[motorB] = currPower;
+    motor[motorC] = defaultPower - currPower;
+  }
+}</pre><a href="http://robocatz.com/programs/LineFollower09.c">Download this program</a><br>
+<p>
+
+<a name="TwoSensorsSteering"></a>
+</p><p>
+
+<a name="Steering2Sensors"></a></p><h3>Method 10: Two Light Sensors Controlling Steering</h3>
+The basic idea in this line following program is to get the robot to follow the line using a light sensor on each side of the line.  The robot should follow the center of the line.  The robot attempts to minimize the differences between the two light sensors.  Optimally, the two light sensors should each see Grey (half over the line and half over the white background).   This program will subtract the value from one sensor from the value of the other sensor (i.e., it will calculate the difference between the two sensors).  If the difference between the sensors is zero (i.e., each sensor is receiving the same amount of light), then the robot will set the steering in the Move block to zero (makes the robot move straight).  If one sensor sees more light than the other, then the difference between them will not be zero.  The robot will then apply a greater amount of steering (positive or negative) to the Move block causing the robot to turn one way or the other.
+<p>
+
+</p><div class="AdText">Calculate the difference between the light sensors which will result in a number from -100 to +100.<br>
+Multiple that difference by 0.40 to convert it to a value which ranges from -40 to +40.<br>
+Use this product as the value for Steering in a Move block.
+<br>
+Formulas:<br>
+   ( LightSensor<sub>2</sub> - LightSensor<sub>1</sub> ) * 0.40 = Steering for the Move Block<br></div><div class="LeftImage"><img src="RobotC%20line%20following_files/LineFollowerProgram10.png" class="LeftImage" border="0"><br><a href="http://robocatz.com/programs/LineFollower10.rbt">Download this program</a><br></div><br clear="all"><h4>How it works.</h4>
+The Move block accepts a numeric value for Steering as input.  The possible ranges are from -100 to +100.  However, values less than -80 or greater than +80 do not alter the performance of the motor.  Therefore, the effective range for steering is from -80 to +80.  Values of steering which are below -40 or above +40 will result in the one of the motors moving backward (in the reverse direction).  If our goal is to keep the robot moving foward, then we should avoid generating values which are below -40 or above +40.<br><br>When substracting the value from one light sensor from the other, the range of possible values is from -100 to +100.   But we only want our steering values to range from -40 to +40.  So, just multiply the difference by 0.40 to convert it to the range we want to use.<br><br>Requires the use of "<a href="http://robocatz.com/calibrate_lightsensor.htm">Calibrated</a>" Light Sensors so that the range of differences is from -100 to +100.
+<p>
+
+</p><h4>Tuning</h4>
+If the turns are more gradual and less sharp or if the robot is moving at a slower speed, you can change the multiplier to 0.30 or 0.20 instead of 0.40.  The robot will turn less sharply as the value of the multiplier is decreased.  If the multiplier is reduced to zero (0.00), the robot will not turn at all.
+<p>
+
+</p><h4>Troubleshooting</h4>
+<ul><li>If the robot moves backwards along the line, try changing the direction of the Move block.</li><li>If the robot moves back and forth without making progress, <a href="http://robocatz.com/calibrate_lightsensor.htm">calibrate</a> the light sensors.</li><li>If the robot turns away from the line, try:</li></ul><ol><li>Reversing the sign of the multiplier from +0.40 to -0.40, or</li><li>Switching which sensor is "subtracted" from the other (see below).</li></ol><table>
+<tbody><tr><td valign="top">
+If this arrangement does not follow the line, 
+</td><td valign="top">    </td><td valign="top">
+try this one.
+</td></tr>
+<tr><td valign="top">
+<img src="RobotC%20line%20following_files/LineFollowerProgram06_Right.png" border="0"><br>
+</td><td valign="top"></td><td valign="top">
+<img src="RobotC%20line%20following_files/LineFollowerProgram06_Left.png" border="0"><br>
+</td></tr>
+</tbody></table><a name="ColorPower"></a><a name="ColorSensorPower"></a><h3>Method 11: Color Sensor to Control Power</h3>
+The basic idea in this line following program is to get the robot to follow the line using a color light sensor.  The robot will try to follow the center of the line.  If oriented properly, the color light sensor will "see" more green light when the sensor is toward one side of the black line and will "see" more blue light when the sensor is more toward the other side of the line.  Internally, the sensor has a green and a blue LED light.  However, the Green and Blue LEDs are next to each other and cast their light slighly to one side or the other of the light sensor.  Using this difference in the relative positioning of the Blue and Green LED allows the robot to detect if the sensor is too far to the left or right of the line.<br><br>If the sensor is directly over the line, the sensor will see black.  If the sensor is close to the line but off to one side, it will see blue.  If it is close to the line but off to the other side, it will see green.  If the sensor is completely off of the line, it will see white.
+<p>
+
+</p><div class="AdText">Pseudocode:<br>
+Color sensor uses a Green LED and Blue LED which are offset from each other.<br>
+Measure the color of light reflected from the surface.<br>
+If White, then you are off of the line (Oops).  Force a turn to get back on the line.<br>
+If Green, turn one way and set a value for turning if you eventually see White.<br>
+If Blue, turn the other way and set a value for turning if you eventually see White.<br>
+If Black, just go straight.<br></div><div class="LeftImage"><img src="RobotC%20line%20following_files/LineFollowerProgram11.png" class="LeftImage" border="0"><br><a href="http://robocatz.com/programs/LineFollower11.rbt">Download this program</a><br></div><br clear="all">Orient the Color sensor onto the robot so that it will produce green light if one one side of the line and blue light if on the other side of the line.<br><br>Color sensors return a numeric value for the color where 1=Black, 2=Blue, 3=Green, 6=White.
+<p>
+
+</p><h4>Example in RobotC</h4>
+<img src="RobotC%20line%20following_files/RobotC.png" class="LeftImage" border="0"><br clear="all"><pre class="prettyprint language-c linenums:1">#pragma config(Sensor, S3, colorPort, sensorCOLORFULL)
+
+task main() {
+  wait1Msec(200); // Give sensor time to initialize
+  int lMotor = 70;
+  int rMotor = 70;
+  int cValue = 0;
+  int turn = 0;
+
+  while( true) {
+
+    int cValue = SensorValue[colorPort];
+    if(cValue == WHITECOLOR) { // You are off of the line. Force the robot to turn
+      cValue = turn;
+    }
+    switch (cValue)  {
+      case BLACKCOLOR: lMotor=70; rMotor=70; break; // Go Straight
+      case BLUECOLOR: turn = BLUECOLOR; lMotor=70; rMotor=30; break;
+      case GREENCOLOR: turn = GREENCOLOR; lMotor=30; rMotor=70; break;
+    }
+    motor[motorB] = lMotor;
+    motor[motorC] = rMotor;
+  }
+}</pre><a href="http://robocatz.com/programs/LineFollower11.c">Download this program</a><br><a name="ColorSteering"></a><a name="ColorSensorSteering"></a><h3>Method 12: Color Sensor to Control Steering</h3>
+The basic idea in this line following program is to get the robot to follow the line using a color light sensor which tries to follow the center of the line.  If oriented properly, the color light sensor will more green light when the sensor is toward one side of the black line and will show more blue light when the sensor is more toward the other side of the line.  Internally, the sensor has a green and a blue LED light.  However, the Green and Blue LEDs are next to each other and cast their light slighly to one side or the other of the light sensor. Using this difference in the relative positioning of the Blue and Green LED allows the robot to detect if the sensor is too far to the left or right of the line.<br><br>If the sensor is directly over the line, the sensor will see black.  If the sensor is close to the line but off to one side, it will see blue.  If it is close to the line but off to the other side, it will see green.  If the sensor is completely off of the line, it will see white.
+<p>
+
+</p><div class="AdText">Pseudocode:<br>
+Color sensor uses a Green LED and Blue LED which are offset from each other.<br>
+Measure the color of light reflected from the surface.<br>
+If White, then you are off of the line (Oops).  Force a turn to get back on the line.<br>
+If Green, turn one way and set a value for turning if you eventually see White.<br>
+If Blue, turn the other way and set a value for turning if you eventually see White.<br>
+If Black, just go straight.<br></div><div class="LeftImage"><img src="RobotC%20line%20following_files/LineFollowerProgram12.png" class="LeftImage" border="0"><br><a href="http://robocatz.com/programs/LineFollower12.rbt">Download this program</a><br></div><br clear="all">Orient the Color sensor onto the robot so that it will produce green light if one one side of the line and blue light if on the other side of the line.<br><br>Color sensors return a numeric value for the color where 1=Black, 2=Blue, 3=Green, 6=White.
+<p>
+
+<a name="WallFollowing"></a><a name="WallFollowing"></a></p><h3>Method 13: Wall Following</h3>
+The basic idea in this wall following program is to get the robot to follow along the side of a wall.  The touch sensor must be mounted onto the side of the robot.  If the touch sensor is not pressed, the switch in the program will use the motor block which will steer the robot toward the wall.  Once the touch sensor is pressed, the switch in the program will use the motor block which steers the robot slightly away from the wall.
+<p>
+
+</p><div class="AdText">Pseudocode:<br>
+If touch sensor is not touched, steer toward the wall.<br>
+If the touch sensor is pressed, then steer away from the wall.<br></div><div class="RightImage"><img src="RobotC%20line%20following_files/WallFollowerProgram01.png" class="RightImage" border="0"><br><a href="http://robocatz.com/programs/WallFollower01.rbt">Download this program</a><br></div></div>
+
+<script language="JavaScript"><!--
+/* Script removed by snapshot save */
+--></script>
+
+
+
+
+</body></html>
