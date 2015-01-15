@@ -28,6 +28,7 @@ task main()
 	float AvgNXTbatteryLevel;
 	float AvgExtBatteryLevel;
 	const float thousand = 1000;
+
 	while(true)
 	{
 		AvgNXTbatteryLevel = nAvgBatteryLevel;
@@ -35,9 +36,9 @@ task main()
 		AvgExtBatteryLevel = externalBatteryAvg;
 		AvgExtBatteryLevel = AvgExtBatteryLevel / thousand;
 		displayCenteredBigTextLine(0, "NXT batt:");
-		displayCenteredBigTextLine(2, "%f", AvgNXTbatteryLevel);
+		displayCenteredBigTextLine(2, "%.3fv", AvgNXTbatteryLevel);
 		displayCenteredBigTextLine(4, "Ext batt:");
-		displayCenteredBigTextLine(6, "%f", AvgExtBatteryLevel);
+		displayCenteredBigTextLine(6, "%.3fv", AvgExtBatteryLevel);
     wait1Msec(100);
 	}
 }
